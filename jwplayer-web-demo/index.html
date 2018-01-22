@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jwplayer demo</title>
+  <style>
+    #videoPlayer {
+      /* margin: auto; */
+      float: left;
+      width: 560;
+      height: 350;  
+    }
+    ul{
+      float: left;
+      width: 400px;
+      margin: 0;
+      margin-left: 20px;
+      /* margin: auto; */
+      padding: 0;
+      list-style: none;
+    }
+    ul li {
+      background: sandybrown;
+      color: white;
+      padding: 5px;
+      margin: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: .2s all ease;
+    }
+    ul li:hover {
+      background: rgb(218, 122, 39);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="videoPlayer"></div>
+  <ul>
+    <li onclick="videoPlayer.playlistItem(0)">Begin Again</li>
+    <li onclick="videoPlayer.playlistItem(1)">心不死，向万物</li>
+    <li onclick="videoPlayer.playlistItem(2)">返老还童</li>
+    <li onclick="videoPlayer.playlistItem(3)">人走爱未凉</li>
+  </ul>
+  <script src="static/js/jquery-1.8.0.js"></script>
+  <script src="static/jwplayer/jwplayer.js"></script>
+  <script type="text/javascript">jwplayer.key = "WJx9dfkcoQfm1E1rPcPU20ROecb/q0mmW2uQ1A==";</script>
+
+  <script>
+    $(function (window, jwplayer) {
+      var playList = [
+        {file: 'static/video/Taylor Swift - Begin Again.mp4',image: 'static/img/Begin Again.png'},
+        {file: 'static/video/陈鸿宇 - 心不死，向万物｜陈鸿宇新专《与荒野》宣传片.mp4',image: ''},
+        {file: 'static/video/胡彦斌 - 返老还童.mp4',image: ''},
+        {file: 'static/video/金钰儿 - 人走爱未凉.mp4',image: ''},
+      ]
+      var videoObj = {
+        width: 560,
+        height: 350,
+        flashplayer: 'static/jwplayer/jwplayer.flash.swf',
+        file: 'static/video/Taylor Swift - Begin Again.mp4',
+        image: 'static/img/Begin Again.png',
+        playlist: playList,
+        dock: false
+      }
+      var thePlayer = window.videoPlayer = jwplayer('videoPlayer').setup(videoObj);
+    }(window, window.jwplayer));
+  </script>
+</body>
+
+</html>
